@@ -1,6 +1,6 @@
 -- @Date:   2017-06-13T14:50:56+02:00
 -- @Project: FiveM Tools
--- @Last modified time: 2017-06-13T15:05:45+02:00
+-- @Last modified time: 2017-06-14T21:34:55+02:00
 -- @License: GNU General Public License v3.0
 
 RegisterNetEvent('ft_blips:ClAdd')
@@ -23,7 +23,7 @@ AddEventHandler('ft_blips:ClHide', function(name)
   Hide(name)
 end)
 
-RegisterNetEvent('ft_blips:ClBlipGenerator')
-AddEventHandler('ft_blips:ClHide', function(blips)
-  BlipGenerator(blips)
+RegisterNetEvent('ft_blips:ClGenerator')
+AddEventHandler('ft_blips:ClGenerator', function(data)
+  Generator(data)
 end)

@@ -1,6 +1,6 @@
 -- @Date:   2017-06-13T14:30:46+02:00
 -- @Project: FiveM Tools
--- @Last modified time: 2017-06-13T15:26:11+02:00
+-- @Last modified time: 2017-06-14T21:42:51+02:00
 -- @License: GNU General Public License v3.0
 
 local blips = {}
@@ -48,11 +48,13 @@ function Hide(name)
   end)
 end
 
-function BlipGenerator(blips)
+function Generator(data)
   Citizen.CreateThread(function()
 
-    for name, data in pairs(blips) do
-      Add(name, data)
+    if type(data) == "table" then
+      for name, blip in pairs(data) do
+        Add(name, blip)
+      end
     end
 
   end)
