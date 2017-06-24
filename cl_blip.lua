@@ -1,6 +1,6 @@
 -- @Date:   2017-06-13T14:54:37+02:00
 -- @Project: FiveM Tools
--- @Last modified time: 2017-06-13T15:30:10+02:00
+-- @Last modified time: 2017-06-24T19:16:14+02:00
 -- @License: GNU General Public License v3.0
 
 -- Constructor
@@ -18,6 +18,7 @@ setmetatable(Blip, {
     p.text = data.text or "Blip"
     p.imageId = data.imageId or 416
     p.colorId = data.colorId or 0
+    p.shortRange = data.shortRange or true
     p.show = show or true
     return setmetatable(p, Blip)
   end
@@ -29,7 +30,7 @@ function Blip:Show()
     if self.x ~= nil and self.y ~= nil and self.z ~= nil and self.blip == nil then
       self.blip = AddBlipForCoord(self.x, self.y, self.z)
       SetBlipSprite(self.blip, self.imageId)
-      SetBlipAsShortRange(self.blip, true)
+      SetBlipAsShortRange(self.blip, self.shortRange)
       SetBlipColour(self.blip, self.colorId)
       BeginTextCommandSetBlipName("STRING")
       AddTextComponentString(self.text)
